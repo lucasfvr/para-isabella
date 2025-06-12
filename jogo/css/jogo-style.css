@@ -1,0 +1,156 @@
+/* ================================================== */
+/* === JOGO-STYLE.CSS - VERSÃO FINAL E COMPLETA === */
+/* ================================================== */
+
+:root {
+    --cor-fundo: #212121;
+    --cor-cartao: #333333;
+    --cor-texto: #f0f0f0;
+    --cor-titulo: #ffffff;
+    --cor-destaque: #E63946;
+    --cor-destaque-hover: #F15C68;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.card {
+    background-color: var(--cor-cartao);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out; 
+}
+
+.card h1 {
+    color: var(--cor-titulo);
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.info-jogo {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0;
+}
+
+.info-jogo h2 {
+    color: var(--cor-texto);
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.tabuleiro-jogo {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+    width: 100%;
+    margin: 25px 0;
+    perspective: 1000px;
+}
+
+.cartao {
+    aspect-ratio: 1 / 1;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.cartao.virado { transform: rotateY(180deg); }
+
+.cartao-face {
+    position: absolute; 
+    width: 100%; 
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.cartao-frente {
+    background-color: #444;
+    transform: rotateY(180deg);
+}
+
+.cartao-frente img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
+.cartao-costas { background: linear-gradient(135deg, var(--cor-destaque), #af2c39); color: white; font-size: 3em; display: flex; align-items: center; justify-content: center; }
+
+.botoes-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+#botao-reiniciar, .link-voltar, .popup-conteudo button {
+    background-color: var(--cor-destaque);
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    margin: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+#botao-reiniciar:hover, .link-voltar:hover, .popup-conteudo button:hover {
+    background-color: var(--cor-destaque-hover);
+    transform: scale(1.05);
+}
+
+.link-voltar { background-color: #777; }
+.link-voltar:hover { background-color: #555; }
+
+.player-container {
+    width: 100%;
+    max-width: 450px;
+    margin: 40px auto 0 auto;
+}
+
+.popup-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.75); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 20px; box-sizing: border-box; }
+.popup-conteudo { background-color: #333333; padding: 30px 40px; border-radius: 15px; text-align: center; max-width: 450px; width: 100%; box-shadow: 0 5px 20px rgba(0,0,0,0.4); color: var(--cor-texto); }
+.popup-conteudo h2 { color: var(--cor-titulo); margin-top: 0; }
+.popup-conteudo p { font-size: 1.1em; line-height: 1.6; margin: 20px 0; }
+
+@media (min-width: 1024px) {
+    .card {
+        max-width: 900px;
+        padding: 40px;
+    }
+    .card h1 {
+        font-size: 3.5em;
+    }
+    .info-jogo h2 {
+        font-size: 1.5em;
+    }
+    .tabuleiro-jogo {
+        grid-gap: 20px;
+    }
+    #botao-reiniciar, .link-voltar {
+        padding: 15px 40px;
+        font-size: 1.1em;
+    }
+    .player-container {
+        max-width: 600px;
+    }
+}

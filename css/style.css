@@ -1,0 +1,160 @@
+/* ================================================== */
+/* === STYLE.CSS - VERSÃO DEFINITIVA E FINALIZADA === */
+/* ================================================== */
+
+:root {
+    --cor-fundo: #212121;
+    --cor-cartao: #2a2a2a;
+    --cor-texto: #f0f0f0;
+    --cor-titulo: #ffffff;
+    --cor-destaque: #E63946;
+    --cor-destaque-hover: #F15C68;
+    --cor-especial-nome: #E63946;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    color: var(--cor-texto);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: var(--cor-fundo);
+}
+
+.card {
+    background-color: var(--cor-cartao);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 90%;
+    max-width: 550px;
+}
+
+.card h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8em;
+    line-height: 1.5;
+    color: var(--cor-titulo);
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.conector {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 300;
+    font-size: 0.4em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.7;
+    color: var(--cor-texto);
+    margin-bottom: 10px;
+}
+
+.nome-destaque {
+    color: var(--cor-especial-nome);
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.2em;
+    text-shadow: 0 0 8px rgba(230, 57, 70, 0.6);
+}
+
+.card h2 { color: var(--cor-titulo); margin-bottom: 15px; }
+.card p { font-size: 1.1em; line-height: 1.6; margin-bottom: 25px; }
+#contagem, .jogo-memoria-link { margin: 30px 0; }
+#contagem h3 { color: var(--cor-titulo); margin-bottom: 10px; }
+#tempo-juntos { font-size: 1.2em; font-weight: bold; color: var(--cor-destaque); }
+
+/* Carrossel */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin: 30px 0;
+    border-radius: 10px;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+    max-height: 150vh; /* <<< AJUSTE FINAL: Limita a altura máxima da foto */
+}
+
+.prev-button, .next-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+.prev-button:hover, .next-button:hover { opacity: 1; }
+.prev-button { left: 10px; }
+.next-button { right: 10px; }
+
+button, .button-jogo { background-color: var(--cor-destaque); color: white; border: none; padding: 15px 30px; font-size: 1em; font-weight: bold; border-radius: 50px; cursor: pointer; text-decoration: none; display: inline-block; transition: background-color 0.3s ease, transform 0.2s ease; }
+button:hover, .button-jogo:hover { background-color: var(--cor-destaque-hover); transform: scale(1.05); }
+
+.hidden { display: none; }
+#surpresa { margin-top: 20px; padding: 15px; background-color: var(--cor-fundo); border-left: 5px solid var(--cor-destaque); font-weight: bold; }
+.player-container { margin-top: 45px; width: 100%; }
+
+footer {
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    color: var(--cor-texto);
+    opacity: 0.8;
+}
+
+/* Regra para Desktop */
+/* Copie e cole este bloco inteiro no final do style.css, substituindo o anterior */
+
+@media (min-width: 1024px) {
+    
+    .card {
+        width: 80%;
+        max-width: 950px;    /* <<< CARD REDUZIDO */
+        padding: 40px 50px;
+    }
+
+    .card h1 {
+        font-size: 3.8em;
+    }
+
+    .nome-destaque {
+        font-size: 1.3em;
+    }
+
+    .card h2 {
+        font-size: 2.2em;
+    }
+
+    .card p, #tempo-juntos {
+        font-size: 1.25em;
+    }
+
+    .button-jogo, button {
+        font-size: 1.1em;
+        padding: 18px 40px;
+    }
+}
